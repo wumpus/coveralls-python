@@ -329,7 +329,10 @@ class Coveralls:
             return self._data
 
         self._data = {'source_files': self.get_coverage()}
-        self._data.update(git_info())
+        gi = git_info()
+        print('GREG: git_info is', gi)
+        self._data.update(gi)
+        #self._data.update(git_info())
         self._data.update(self.config)
         if extra:
             if 'source_files' in extra:
